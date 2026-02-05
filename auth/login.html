@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход | Эмили</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="icon" href="../images/icons/login-icon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../images/logo.png" alt="Логотип Эмили" class="logo">
+            <h1>Вход в аккаунт</h1>
+        </div>
+    </header>
+    
+    <div class="auth-container">
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <label for="loginUsername">Имя пользователя:</label>
+                <input type="text" id="loginUsername" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">Пароль:</label>
+                <input type="password" id="loginPassword" name="password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+        
+        <div class="auth-switch">
+            <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
+        </div>
+        
+        <div id="loginMessage" class="message"></div>
+    </div>
+    
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (login(username, password)) {
+                document.getElementById('loginMessage').innerHTML = '<p class="success">Успешный вход! Переадресация...</p>';
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 1500);
+            } else {
+                document.getElementById('loginMessage').innerHTML = '<p class="error">Неверное имя пользователя или пароль</p>';
+            }
+        });
+    </script>
+</body>
+</html>

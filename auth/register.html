@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | Эмили</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="icon" href="../images/icons/register-icon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../images/logo.png" alt="Логотип Эмили" class="logo">
+            <h1>Создать аккаунт</h1>
+        </div>
+    </header>
+    
+    <div class="auth-container">
+        <form id="registerForm" class="auth-form">
+            <div class="form-group">
+                <label for="regUsername">Имя пользователя:</label>
+                <input type="text" id="regUsername" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regPassword">Пароль:</label>
+                <input type="password" id="regPassword" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regConfirmPassword">Подтвердите пароль:</label>
+                <input type="password" id="regConfirmPassword" name="confirmPassword" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </form>
+        
+        <div class="auth-switch">
+            <p>Уже есть аккаунт? <a href="login.html">Войдите</a></p>
+        </div>
+        
+        <div id="registerMessage" class="message"></div>
+    </div>
+    
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                document.getElementById('registerMessage').innerHTML = '<p class="error">Пароли не совпадают</p>';
+                return;
+            }
+            
+            if (register(username, password)) {
+                document.getElementById('registerMessage').innerHTML = '<p class="success">Успешная регистрация! Переадресация на страницу входа...</p>';
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            } else {
+                document.getElementById('registerMessage').innerHTML = '<p class="error">Имя пользователя уже занято</p>';
+            }
+        });
+    </script>
+</body>
+</html>
