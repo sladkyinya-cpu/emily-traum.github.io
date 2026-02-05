@@ -1,116 +1,134 @@
-/* Основные стили для сайта Эмили */
-
-/* Переменные для цветов */
-:root {
-    --primary-color: #8B5FBF;
-    --secondary-color: #FF7AA2;
-    --accent-color: #7CD1F9;
-    --light-bg: #FCF8F3;
-    --dark-text: #333333;
-    --light-text: #FFFFFF;
-}
-
-* {
+/* Book-themed CSS */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #f5f1e5; /* Old paper color */
+    color: #3a2d22; /* Dark brown text like old books */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--dark-text);
-    background-color: var(--light-bg);
 }
 
 header {
-    background-color: var(--primary-color);
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #5d4037; /* Deep brown */
+    color: #f5f1e5;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid #8d6e63; /* Medium brown */
+}
+
+nav {
+    background-color: #8d6e63; /* Medium brown */
+    padding: 15px 0;
+    text-align: center;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #f5f1e5;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d7ccc8; /* Light brown */
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+footer {
+    background-color: #5d4037; /* Deep brown */
+    color: #f5f1e5;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 3px solid #8d6e63;
+}
+
+h1 {
+    color: #4e342e; /* Darker brown */
+    border-bottom: 2px solid #8d6e63;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #5d4037; /* Deep brown */
+}
+
+a {
+    color: #6d4c41; /* Brown link color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4e342e; /* Darker brown on hover */
+}
+
+/* Navigation fixes */
+.nav-links {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-nav li {
-    margin: 0 1rem;
-}
-
-nav a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
+.nav-links a {
+    margin: 0 15px;
+    padding: 8px 16px;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    background-color: rgba(245, 241, 229, 0.2);
+    transition: background-color 0.3s;
 }
 
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.nav-links a:hover {
+    background-color: rgba(141, 110, 99, 0.3);
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.hero {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--light-text);
-    border-radius: 10px;
-    margin-bottom: 2rem;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.about-me, .latest-posts {
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-    background-color: white;
+/* Card styles for content */
+.card {
+    background-color: #fff9f0; /* Slightly off-white */
+    border: 1px solid #d7ccc8;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
+/* Button styles */
+.btn {
+    display: inline-block;
+    background-color: #8d6e63;
+    color: #f5f1e5;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-footer {
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 2rem;
+.btn:hover {
+    background-color: #6d4c41;
 }
 
-/* Адаптивный дизайн */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav li {
-        margin: 0.5rem 0;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    main {
-        padding: 1rem;
-    }
+/* Blockquote styling for quotes */
+blockquote {
+    border-left: 4px solid #8d6e63;
+    margin: 20px 0;
+    padding-left: 20px;
+    font-style: italic;
+    color: #5d4037;
 }
